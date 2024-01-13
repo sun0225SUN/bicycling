@@ -1,0 +1,16 @@
+certifi
+charset-normalizer
+DateTime
+gpxpy
+idna
+numpy
+pandas==1.4.0
+pip
+python-dateutil
+pytz
+requests
+setuptools
+six
+urllib3
+wheel
+zope.interface
