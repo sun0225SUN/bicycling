@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// 浅色
+/* 浅色 */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
