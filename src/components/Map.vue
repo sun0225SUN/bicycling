@@ -36,6 +36,16 @@ async function initMap() {
   }
 
   const map = new mapboxgl.Map(mapConfig)
+  // 星星背景
+  map.on('style.load', () => {
+    map.setFog({
+      'color': '#000000',
+      'high-color': '#282727',
+      'horizon-blend': 0.02,
+      'space-color': '#000000',
+      'star-intensity': 0.6,
+    })
+  })
 
   // 中文标注
   if (config.isChinese)
