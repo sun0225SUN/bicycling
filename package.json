@@ -15,6 +15,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^1.0.1",
     "@tmcw/togeojson": "^5.8.1",
+    "@vueuse/core": "^10.7.2",
     "ant-design-vue": "~4.1.0",
     "mapbox-gl": "^3.0.1",
     "vue": "^3.4.13",
@@ -22,7 +23,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.2",
+    "@iconify-json/carbon": "^1.1.27",
     "@unocss/eslint-plugin": "^0.58.3",
+    "@unocss/preset-icons": "^0.58.3",
     "@vitejs/plugin-vue": "^5.0.3",
     "eslint": "^8.56.0",
     "eslint-plugin-format": "^0.1.0",

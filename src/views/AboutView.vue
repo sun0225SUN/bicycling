@@ -3,7 +3,7 @@
 
 <template>
   <main>
-    <h1>This is an About page</h1>
+    <p>This is an About page</p>
   </main>
 </template>
 
