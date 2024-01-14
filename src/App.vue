@@ -28,7 +28,7 @@ async function initMap() {
     container: 'mapbox',
     style: 'mapbox://styles/mapbox/dark-v11',
     center: [113.448177, 22.761818],
-    zoom: 2,
+    zoom: 0,
   }
 
   const map = new mapboxgl.Map(mapConfig)
@@ -40,7 +40,7 @@ async function initMap() {
     center: [113.448177, 22.761818],
     zoom: 9,
     bearing: 0,
-    speed: 0.8,
+    speed: 1,
     curve: 1,
     easing: t => t,
     essential: true,
