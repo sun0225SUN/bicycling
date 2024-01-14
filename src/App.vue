@@ -37,7 +37,7 @@ async function initMap() {
   }
 
   map.on('load', async () => {
-    const files = import.meta.glob('@/data/gpx/*.gpx')
+    const files = import.meta.glob('/data/gpx/*.gpx')
     for (const file in files) {
       const data = await loadGpxFile(file)
       const fileName = file.match(/\/(\w+)\.gpx$/)[1]
