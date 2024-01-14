@@ -26,8 +26,8 @@ async function initMap() {
   const map = new mapboxgl.Map({
     container: 'mapbox',
     style: 'mapbox://styles/mapbox/dark-v11',
-    center: [113.264499, 23.130061],
-    zoom: 8,
+    center: [113.448177, 22.761818],
+    zoom: 2,
   })
 
   if (config.isChinese) {
@@ -55,6 +55,15 @@ async function initMap() {
         },
       })
     }
+    map.flyTo({
+      center: [113.448177, 22.761818], // 目标位置的经纬度
+      zoom: 9, // 目标缩放级别
+      bearing: 0, // 目标方位角
+      speed: 0.8, // 动画速度，可以调整
+      curve: 1, // 动画曲线，可以调整
+      easing: t => t, // 缓动函数，可以调整
+      essential: true, // 必需的参数，确保动画正常工作
+    })
   })
 }
 
