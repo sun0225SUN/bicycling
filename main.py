@@ -151,7 +151,12 @@ class StravaApiHelper:
 					new_activities.loc[x + (page - 1) * 200, col] = value
 			page += 1  # Export your activities file as a csv
 		# to the folder you're running this script in
-		new_activities = new_activities.append(activities, ignore_index=True)
+		# 删除所有 NA 的行
+		new_activities = new_activities.dropna(how='all')
+		# 删除所有 NA 的列
+		new_activities = new_activities.dropna(axis=1, how='all')
+
+		new_activities = pd.concat([new_activities, activities], ignore_index=True)
 		new_activities.to_csv(
 			self.data_folder + 'activity_summary_raw.csv', index=False)
 		print('Activity summary updated!')
