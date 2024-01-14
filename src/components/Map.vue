@@ -4,22 +4,12 @@ import MapboxLanguage from '@mapbox/mapbox-gl-language'
 import { onMounted } from 'vue'
 import { gpx } from '@tmcw/togeojson'
 import config from '@/config'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
-// const props = defineProps({
-//   mapWidth: {
-//     type: Number,
-//     default: 100,
-//   },
-//   mapHeight: {
-//     type: Number,
-//     default: 100,
-//   },
-// })
-
-// 生成随机颜色
+// 生成随机色
 const getRandomColor = () => `rgb(${Array(3).fill(0).map(() => Math.floor(Math.random() * 256)).join(',')})`
 
-// 加载并解析 GPX 文件
+//  GPX to GeoJSON
 async function loadGpxFile(file) {
   try {
     const response = await fetch(file)
@@ -38,18 +28,36 @@ async function initMap() {
   const mapConfig = {
     container: 'mapbox',
     style: 'mapbox://styles/mapbox/dark-v11',
-    center: [113.448177, 22.761818],
+    center: [113.457495, 22.589236],
     zoom: 1,
     maxZoom: 12,
+    pitch: 50,
+    bearing: -60,
   }
 
   const map = new mapboxgl.Map(mapConfig)
 
+  // 中文标注
   if (config.isChinese)
     map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
 
+  // 全屏
+  map.addControl(new mapboxgl.FullscreenControl({ container: document.querySelector('body') }))
+  // 缩放
+  map.addControl(new mapboxgl.NavigationControl({ showZoom: true, showCompass: true, visualizePitch: true }))
+  // 比例尺
+  map.addControl(new mapboxgl.ScaleControl({ maxWidth: 80, unit: 'metric' }))
+  // 定位
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true,
+    },
+    trackUserLocation: true,
+    showUserHeading: true,
+  }))
+
   map.flyTo({
-    center: [113.448177, 22.761818],
+    center: [113.457495, 22.589236],
     zoom: 9,
     bearing: 0,
     speed: 1,
@@ -69,7 +77,15 @@ async function initMap() {
           id: fileName,
           type: 'line',
           source: fileName,
-          paint: { 'line-color': getRandomColor(), 'line-width': 2 },
+          paint: {
+            'line-color': getRandomColor(),
+            'line-width': 2,
+            'line-opacity': 0.8,
+          },
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round',
+          },
         })
       }
       catch (error) {
