@@ -9,7 +9,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 // 生成随机色
 const getRandomColor = () => `rgb(${Array(3).fill(0).map(() => Math.floor(Math.random() * 256)).join(',')})`
 
-//  GPX to GeoJSON
+// GPX to GeoJSON
 async function loadGpxFile(file) {
   try {
     const response = await fetch(file)
@@ -36,6 +36,7 @@ async function initMap() {
   }
 
   const map = new mapboxgl.Map(mapConfig)
+
   // 星星背景
   map.on('style.load', () => {
     map.setFog({
@@ -52,11 +53,14 @@ async function initMap() {
     map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
 
   // 全屏
-  map.addControl(new mapboxgl.FullscreenControl({ container: document.querySelector('body') }))
-  // 缩放
-  map.addControl(new mapboxgl.NavigationControl({ showZoom: true, showCompass: true, visualizePitch: true }))
+  map.addControl(new mapboxgl.FullscreenControl())
+
   // 比例尺
-  map.addControl(new mapboxgl.ScaleControl({ maxWidth: 80, unit: 'metric' }))
+  map.addControl(new mapboxgl.ScaleControl())
+
+  // 缩放
+  map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }))
+
   // 定位
   map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
@@ -66,6 +70,7 @@ async function initMap() {
     showUserHeading: true,
   }))
 
+  // 飞入
   map.flyTo({
     center: [113.457495, 22.589236],
     zoom: 9,
@@ -76,6 +81,7 @@ async function initMap() {
     essential: true,
   })
 
+  // 地图加载完成后依次添加数据图层
   map.on('load', async () => {
     const files = import.meta.glob('/data/gpx/*.gpx')
     for (const file in files) {
