@@ -30,7 +30,7 @@ async function initMap() {
     style: 'mapbox://styles/mapbox/dark-v11',
     center: [113.457495, 22.589236],
     zoom: 1,
-    maxZoom: 12,
+    maxZoom: 14,
     pitch: 50,
     bearing: -60,
   }
@@ -91,6 +91,7 @@ async function initMap() {
             'line-color': getRandomColor(),
             'line-width': 2,
             'line-opacity': 0.8,
+            'line-dasharray': [0, 4, 3],
           },
           layout: {
             'line-join': 'round',
