@@ -97,7 +97,7 @@ async function initMap() {
             'line-color': getRandomColor(),
             'line-width': 2,
             'line-opacity': 0.8,
-            // 'line-dasharray': [0, 3, 6],
+            'line-dasharray': [0, 3, 3],
           },
           layout: {
             'line-join': 'round',
