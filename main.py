@@ -9,9 +9,9 @@ from argparse import ArgumentParser
 
 	# 密钥信息
 init_info = {
-	'client_id': input('Enter Strava client ID: '),
-	'client_secret': input('Enter Strava client secret: '),
-	'code': input('Enter Strava code: '),
+	'client_id': 'xxxxxx',
+	'client_secret': 'b6f2bb548a4df5bf5694fd538cd73dbee553d424',
+	'code': '35a7a4f083a938674a666bd5ec49d6888a767e88',
 	"grant_type": "authorization_code"
 }
 # init_info = {
