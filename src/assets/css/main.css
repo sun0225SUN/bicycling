@@ -10,11 +10,12 @@
   }
 }
 
-html{
-  font-family: "Pingfang SC", "Helvetica Neue", "Helvetica", "Arial", "Microsoft YaHei", "微软雅黑", "STHeitiSC-Light", "sans-serif";
+html {
+  font-family: 'Pingfang SC', 'Helvetica Neue', 'Helvetica', 'Arial',
+    'Microsoft YaHei', '微软雅黑', 'STHeitiSC-Light', 'sans-serif';
 }
 
-html.dark{
+html.dark {
   color: var(--text-color);
   /* 背景色 */
   background-color: var(--bg-color);
@@ -25,7 +26,7 @@ a {
   text-decoration: none;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }

@@ -84,7 +84,8 @@ async function initMap() {
   // 地图加载完成后依次添加数据图层
   map.on('load', async () => {
     const files = import.meta.glob('/data/gpx/*.gpx')
-    for (const file in files) {
+    const fileArray = Object.keys(files).reverse()
+    for (const file of fileArray) {
       try {
         const data = await loadGpxFile(file)
         const fileName = file.match(/\/(\w+)\.gpx$/)[1]
