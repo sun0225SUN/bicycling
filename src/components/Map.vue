@@ -28,7 +28,7 @@ async function initMap() {
   const mapConfig = {
     container: 'mapbox',
     style: 'mapbox://styles/mapbox/dark-v11',
-    center: [113.457495, 22.589236],
+    center: [116.40, 39.91],
     zoom: 1,
     maxZoom: 14,
     pitch: 50,
@@ -72,7 +72,7 @@ async function initMap() {
 
   // 飞入
   map.flyTo({
-    center: [113.457495, 22.589236],
+    center: [116.40, 39.91],
     zoom: 9,
     bearing: 0,
     speed: 1,
